@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student QR Generator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student QR Generator</h1>
+
+      <form action="/generate" method="POST">
+        <input
+          type="text"
+          name="student_id"
+          placeholder="Student ID"
+          required
+        />
+        <input type="text" name="name" placeholder="Full Name" required />
+
+        <div class="radio-group">
+          <label>Gender:</label>
+
+          <div class="radio-options">
+            <label>
+              <input type="radio" name="gender" value="Male" required />
+              Male
+            </label>
+
+            <label>
+              <input type="radio" name="gender" value="Female" />
+              Female
+            </label>
+
+            <label>
+              <input type="radio" name="gender" value="Other" />
+              Other
+            </label>
+          </div>
+        </div>
+
+        <input type="date" name="dob" required />
+        <input type="text" name="mobile" placeholder="Mobile Number" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+
+        <select name="course" required>
+          <option value="">Select Course</option>
+          <option>BCA</option>
+          <option>MCA</option>
+          <option>BTech</option>
+          <option>MTech</option>
+          <option>BSc</option>
+          <option>MSc</option>
+        </select>
+
+        <select name="branch" required>
+          <option value="">Select Branch</option>
+          <option>CSE</option>
+          <option>IT</option>
+          <option>ECE</option>
+          <option>EEE</option>
+          <option>Mechanical</option>
+          <option>Civil</option>
+        </select>
+
+        <div class="button-row">
+          <button type="submit">Generate QR</button>
+          <button type="reset" class="secondary-btn">Reset</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
